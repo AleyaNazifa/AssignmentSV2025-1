@@ -13,47 +13,57 @@ st.write(
 
 st.markdown("---")
 
+# 💅 make metric cards pretty
+st.markdown("""
+<style>
+/* card look for st.metric */
+div[data-testid="stMetric"] {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(250,250,250,0.15);
+  border-radius: 14px;
+  padding: 16px 18px;
+}
+div[data-testid="stMetric"] > label {
+  font-weight: 600 !important;
+  opacity: 0.9;
+}
+div[data-testid="stMetricValue"] > div {
+  font-size: 2rem !important;  /* make the number bigger */
+  font-weight: 700 !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 # --- SUMMARY BOX (METRIC CARDS) ---
 st.subheader("📊 Summary Box")
+c1, c2, c3, c4 = st.columns(4, gap="medium")
 
-col1, col2, col3, col4 = st.columns(4)
-
-col1.metric(
-    label="🦠 Avg Monthly HFMD Cases",
+c1.metric(
+    label="Avg Monthly Cases",
     value="245",
-    help="Mean number of HFMD cases per month across all Malaysian regions (2009–2019)",
-    border=True
+    help="Mean monthly HFMD cases across Malaysia (2009–2019)",
+    border=True,
 )
 
-col2.metric(
-    label="📅 Peak Outbreak Year",
+c2.metric(
+    label="Peak Year",
     value="2018",
-    help="Year with the highest recorded HFMD cases based on monthly averages",
-    border=True
+    help="Year with the highest average monthly HFMD cases",
+    border=True,
 )
 
-col3.metric(
-    label="🌦️ Seasonal Peak Months",
-    value="May – July",
-    help="Months that consistently record the highest HFMD outbreaks each year",
-    border=True
+c3.metric(
+    label="Seasonal Peak",
+    value="May–Jul",
+    help="Months that most often record the highest HFMD activity",
+    border=True,
 )
 
-col4.metric(
-    label="🧾 Dataset Duration",
-    value="2009 – 2019",
-    help="Time coverage of the HFMD dataset used for analysis",
-    border=True
+c4.metric(
+    label="Coverage",
+    value="2009–2019",
+    help="Temporal coverage of the dataset used in this page",
+    border=True,
 )
-
 st.markdown("---")
-
-# --- PLACEHOLDER TEXT (you can replace this later with real plots) ---
-st.subheader("🧩 Visualization Section (to be added)")
-st.info(
-    "This section will contain three visualizations for Objective 1: "
-    "a line chart of monthly trends, a bar chart of yearly averages, "
-    "and a heatmap showing seasonal patterns."
-)
-
-st.success("✅ Objective 1 structure completed. Continue to 'HFMD and Weather Analysis' for Objective 2.")
