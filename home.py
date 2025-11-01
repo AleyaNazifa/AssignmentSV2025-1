@@ -13,59 +13,71 @@ st.write(
 
 st.markdown("---")
 
+# --- better metric card styling ---
 st.markdown("""
 <style>
-/* make metrics wider and text wrap cleanly */
+/* container styling for each metric */
 div[data-testid="stMetric"] {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(250,250,250,0.15);
-  border-radius: 14px;
-  padding: 18px 22px;
-  min-width: 210px;
-  height: 110px;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 6px;
+  min-width: 230px;
+  height: 120px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
+
+/* label styling */
 div[data-testid="stMetric"] > label {
   white-space: normal !important;
-  text-align: center !important;
-  display: block;
+  word-wrap: break-word !important;
+  font-weight: 600 !important;
   font-size: 0.95rem !important;
+  opacity: 0.9 !important;
   line-height: 1.2rem !important;
+  text-align: center !important;
 }
+
+/* value styling */
 div[data-testid="stMetricValue"] > div {
-  font-size: 1.8rem !important;
+  font-size: 1.9rem !important;
+  font-weight: 700 !important;
+  color: #fafafa !important;
+  margin-top: 4px;
   text-align: center !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-
+# --- summary metrics ---
 st.subheader("📊 Summary Box")
 c1, c2, c3, c4 = st.columns(4, gap="large")
 
 c1.metric(
     label="Average Monthly HFMD Cases",
     value="245",
-    help="Mean monthly HFMD cases across Malaysia (2009–2019)",
+    help="Mean number of HFMD cases per month across Malaysia (2009–2019)",
     border=True,
 )
 c2.metric(
     label="Peak Outbreak Year",
     value="2018",
-    help="Year with the highest average monthly HFMD cases",
+    help="Year with the highest average HFMD incidence",
     border=True,
 )
 c3.metric(
     label="Seasonal Peak Months",
     value="May – July",
-    help="Months that record the highest HFMD activity each year",
+    help="Typical months with the highest HFMD outbreak rates",
     border=True,
 )
 c4.metric(
-    label="Dataset Coverage Period",
+    label="Dataset Coverage",
     value="2009 – 2019",
-    help="Time range covered by the HFMD dataset",
+    help="Temporal coverage of the HFMD dataset analyzed",
     border=True,
 )
 st.markdown("---")
+
