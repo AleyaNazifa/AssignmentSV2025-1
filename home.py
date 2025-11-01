@@ -7,18 +7,18 @@ st.markdown("---")
 # --- OBJECTIVE STATEMENT ---
 st.subheader("🎯 Objective Statement")
 st.write(
-    "To analyze the **temporal trend** and **seasonal variation** of Hand, Foot and Mouth Disease (HFMD) cases "
-    "in Malaysia from 2009 to 2019, identifying outbreak peaks and recurring seasonal patterns."
+    "To analyze the **temporal trend** and **seasonal variation** of Hand, Foot and Mouth Disease (HFMD) "
+    "cases in Malaysia from 2009 to 2019, identifying outbreak peaks and recurring seasonal patterns."
 )
 st.markdown("---")
 
-# --- SUMMARY BOX ---
+# --- SUMMARY BOX (3 METRICS) ---
 st.subheader("📊 Summary Box")
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 
 col1.metric(
-    label="🦠 Avg Monthly HFMD Cases",
+    label="📈 Avg Monthly HFMD Cases",
     value="245",
     help="Mean number of HFMD cases per month across all Malaysian regions (2009–2019)",
     border=True
@@ -35,13 +35,6 @@ col3.metric(
     label="🌦️ Seasonal Peak Months",
     value="May – July",
     help="Months that consistently record the highest HFMD outbreaks each year",
-    border=True
-)
-
-col4.metric(
-    label="🧾 Dataset Duration",
-    value="2009 – 2019",
-    help="Time coverage of the HFMD dataset used for analysis",
     border=True
 )
 
