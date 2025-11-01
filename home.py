@@ -55,36 +55,16 @@ div[data-testid="stMetricValue"] > div {
 st.subheader("📊 Summary Box")
 c1, c2, c3, c4 = st.columns(4, gap="large")
 
-c1.metric(
-    label="Avg monthly cases",
-    value="245",
-    help="Mean HFMD cases per month across all regions (2009–2019)",
-    border=True,
-)
-c1.caption("Mean across all months")
+def kpi(card, title, value, note):
+    with card:
+        with st.container(border=True):
+            st.markdown(f"**{title}**")
+            st.markdown(f"<div style='font-size:2rem; font-weight:700'>{value}</div>", unsafe_allow_html=True)
+            st.caption(note)
 
-c2.metric(
-    label="Peak year",
-    value="2018",
-    help="Year with the highest average monthly HFMD cases",
-    border=True,
-)
-c2.caption("Highest annual average")
+kpi(c1, "Avg monthly cases", "245", "Mean across months (2009–2019)")
+kpi(c2, "Peak year", "2018", "Highest annual average")
+kpi(c3, "Seasonal peak", "May–July", "Typical outbreak window")
+kpi(c4, "Coverage", "2009–2019", "Dataset period")
 
-c3.metric(
-    label="Seasonal peak",
-    value="May–July",
-    help="Months that most often recorded the highest HFMD activity",
-    border=True,
-)
-c3.caption("Typical outbreak window")
-
-c4.metric(
-    label="Coverage",
-    value="2009–2019",
-    help="Temporal coverage of the dataset",
-    border=True,
-)
-c4.caption("Dataset period")
 st.markdown("---")
-
