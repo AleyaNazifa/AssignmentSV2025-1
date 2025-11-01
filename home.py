@@ -56,28 +56,35 @@ st.subheader("📊 Summary Box")
 c1, c2, c3, c4 = st.columns(4, gap="large")
 
 c1.metric(
-    label="Average Monthly HFMD Cases",
+    label="Avg monthly cases",
     value="245",
-    help="Mean number of HFMD cases per month across Malaysia (2009–2019)",
+    help="Mean HFMD cases per month across all regions (2009–2019)",
     border=True,
 )
+c1.caption("Mean across all months")
+
 c2.metric(
-    label="Peak Outbreak Year",
+    label="Peak year",
     value="2018",
-    help="Year with the highest average HFMD incidence",
+    help="Year with the highest average monthly HFMD cases",
     border=True,
 )
+c2.caption("Highest annual average")
+
 c3.metric(
-    label="Seasonal Peak Months",
-    value="May – July",
-    help="Typical months with the highest HFMD outbreak rates",
+    label="Seasonal peak",
+    value="May–July",
+    help="Months that most often recorded the highest HFMD activity",
     border=True,
 )
+c3.caption("Typical outbreak window")
+
 c4.metric(
-    label="Dataset Coverage",
-    value="2009 – 2019",
-    help="Temporal coverage of the HFMD dataset analyzed",
+    label="Coverage",
+    value="2009–2019",
+    help="Temporal coverage of the dataset",
     border=True,
 )
+c4.caption("Dataset period")
 st.markdown("---")
 
